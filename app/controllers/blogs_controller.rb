@@ -30,7 +30,7 @@ def create
 
   def update
     @blog = Blog.find(params[:id]) 
-    
+
     respond_to do |format|
       if @blog.update(blog_params)
         format.html { redirect_to @blog, notice: 'Your Blog was successfully updated.' }
@@ -39,6 +39,16 @@ def create
         format.html { render :edit }
         format.json { render json: @blog.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def destroy
+    @blog = Blog.find(params[:id]) 
+
+    @blog.destroy
+    respond_to do |format|
+      format.html { redirect_to blogs_url, notice: 'Blog post was successfully removed.' }
+      format.json { head :no_content }
     end
   end
   

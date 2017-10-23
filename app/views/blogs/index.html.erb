@@ -1,8 +1,16 @@
 <h1>Check out my Blog!!!</h1>
 
+<%= link_to "Create a new blog post", new_blog_path %>
+
 <% @blogs.each do |blog| %>
 	<h2><%=link_to blog.title, blog_path(blog) %></h2>
 	<p><%= blog.author %></p>
 	<p><%= blog.body %></p>
+
+    <p><%= link_to 'show', blog %></p>
+    <p><%= link_to 'edit', edit_blog_path(blog) %></p>
+    <p><%= link_to 'Delete', blog, method: :delete, data: {confirm: 'Are you sure you want to delete this post?' } %></p>
+
+
 	
 <% end %>
