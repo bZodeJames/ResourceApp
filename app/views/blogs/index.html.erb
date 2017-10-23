@@ -4,7 +4,7 @@
 
 <% @blogs.each do |blog| %>
 	<h2><%=link_to blog.title, blog_path(blog) %></h2>
-	<p><%= blog.author %></p>
+	<p>By: <strong><%= blog.author %></strong></p>
 	<p><%= blog.body %></p>
 
     <p><%= link_to 'show', blog %></p>

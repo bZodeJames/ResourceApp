@@ -1,0 +1,8 @@
+<h1>Welcome to my Jazz Blog!</h1>
+<h2>Never Miss a Beat!</h2>
+<hr>
+<% @blogs.each do |blog| %>
+	<h2><%=link_to blog.title, blog_path(blog) %></h2>
+	<p><%= blog.author %></p>
+	<p><%= blog.body %></p>
+<% end %>    

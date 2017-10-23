@@ -1,9 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Show page</h1>
 
 <h1><%=  @blog.title %></h1>
-<p><%=  @blog.author  %></p>
+<p>By: <strong><%=  @blog.author  %></strong></p>
 <p><%=  @blog.body  %></p>
 
 <%= link_to 'Back', blogs_path %>
