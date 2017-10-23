@@ -1,0 +1,8 @@
+<h1>Check out my Blog!!!</h1>
+
+<% @blogs.each do |blog| %>
+	<h2><%=link_to blog.title, blog_path(blog) %></h2>
+	<p><%= blog.author %></p>
+	<p><%= blog.body %></p>
+	
+<% end %>
