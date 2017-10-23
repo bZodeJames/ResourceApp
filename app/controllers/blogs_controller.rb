@@ -10,6 +10,10 @@ def new
     @blog = Blog.new
 end
 
+def edit
+    @blog = Blog.find(params[:id]) 
+end
+
 def create
     @blog = Blog.new(blog_params)
 
@@ -24,6 +28,20 @@ def create
     end
   end
 
+  def update
+    @blog = Blog.find(params[:id]) 
+    
+    respond_to do |format|
+      if @blog.update(blog_params)
+        format.html { redirect_to @blog, notice: 'Your Blog was successfully updated.' }
+        format.json { render :show, status: :ok, location: @blog }
+      else
+        format.html { render :edit }
+        format.json { render json: @blog.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  
   def blog_params
     params.require(:blog).permit(:title, 
                                 :author, 
