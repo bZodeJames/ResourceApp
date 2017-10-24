@@ -51,7 +51,9 @@ def create
       format.json { head :no_content }
     end
   end
-  
+
+private
+
   def blog_params
     params.require(:blog).permit(:title, 
                                 :author, 
